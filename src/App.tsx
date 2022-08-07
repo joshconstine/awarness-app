@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function App() {
   let [data, setData] = useState({});
@@ -23,7 +24,11 @@ function App() {
     fetchData();
   }, []);
 
-  return <div>{}</div>;
+  return (
+    <div>
+      <Button variant="outlined">click me</Button>
+    </div>
+  );
 }
 
 export default App;

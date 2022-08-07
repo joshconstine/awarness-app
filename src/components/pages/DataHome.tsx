@@ -8,7 +8,8 @@ const DataHome = () => {
         width="600px"
         backgroundColor="#grey"
         cardContent={"data here"}
-      />
+          />
+          
     </div>
   );
 };
