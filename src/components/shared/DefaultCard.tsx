@@ -11,19 +11,16 @@ type DefaultCardProps = {
 
 const DefaultCard = (props: DefaultCardProps) => {
   const { title, cardContent, width, tabTitle, color, backgroundColor } = props;
-  console.log(props);
   return (
     <Card
       style={{
-        width: "600px",
-        color: color,
-        backgroundColor: backgroundColor,
+        color,
+        width,
+        backgroundColor,
       }}
     >
-      <CardHeader title={title} />
-      <CardContent>
-        <>{cardContent}</>
-      </CardContent>
+      <CardHeader title={title}></CardHeader>
+      <CardContent>{cardContent}</CardContent>
     </Card>
   );
 };

@@ -1,4 +1,15 @@
+import DefaultCard from "../shared/DefaultCard";
 const DataHome = () => {
-  return <div>Data here</div>;
+  return (
+    <div>
+      <DefaultCard
+        title="data"
+        color="red"
+        width="600px"
+        backgroundColor="#grey"
+        cardContent={"data here"}
+      />
+    </div>
+  );
 };
 export default DataHome;
