@@ -1,4 +1,4 @@
-import { Input } from "@mui/material";
+import { Input, TextField } from "@mui/material";
 import React, {
   FC,
   forwardRef,
@@ -49,7 +49,7 @@ export const DefaultInput: FC<DefaultInputProps> = forwardRef<
     ref
   ) => {
     return (
-      <Input
+      <TextField
         id={id}
         ref={ref}
         name={name}

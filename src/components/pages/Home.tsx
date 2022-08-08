@@ -5,7 +5,7 @@ const Home = () => {
   const [gender, setGender] = useState<string>();
   const [age, setAge] = useState<number>();
 
-  const handleSubmit = () => {
+  const handleSubmit = (): void => {
     const gender: any = document.getElementById("gender");
     const age: any = document.getElementById("age");
     setAge(age.value);
@@ -31,7 +31,14 @@ const Home = () => {
     },
   ];
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       {gender}
       {age}
       <InputForm forms={formData} callback={handleSubmit} />

@@ -1,7 +1,8 @@
-import { Button } from "@mui/material";
+import { Button, FormControl, FormGroup } from "@mui/material";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import { DefaultInput } from "./DefaultInput";
+import { InputFormStyles } from "./InputformStyle";
 
 export type InputSize = "medium" | "large";
 export type InputType = "text" | "email" | "number";
@@ -32,12 +33,13 @@ export const InputForm = (props: {
   const { callback } = props;
 
   const onSubmit = handleSubmit((data) => {
+    console.log("click");
     if (callback) {
       callback();
     }
   });
   return (
-    <form onSubmit={onSubmit}>
+    <FormControl onSubmit={onSubmit} style={InputFormStyles}>
       {props.forms.map((form) => {
         return (
           <DefaultInput
@@ -55,9 +57,10 @@ export const InputForm = (props: {
       <Button
         className="mt-4 transform duration-200 py-2 px-4 bg-blue-500 text-white font-semibold rounded shadow-md hover:bg-blue-600 focus:outline-none disabled:opacity-50 focus:translate-y-1 hover:-translate-y-1"
         type="submit"
+        onClick={onSubmit}
       >
         Submit
       </Button>
-    </form>
+    </FormControl>
   );
 };
