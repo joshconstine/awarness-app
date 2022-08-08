@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/shared/Navbars/Navbar";
 import DataHome from "./components/pages/DataHome";
 import theme from "./theme";
 import { ThemeProvider } from "@mui/styles";
@@ -13,14 +13,21 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
+  // <>
+  //   <BrowserRouter>
+  //     <ThemeProvider theme={theme}>
+  //       <Navbar />
+  //       <Routes>
+  //         <Route path="/" element={<App />}></Route>
+  //         <Route path="/data" element={<DataHome />}></Route>
+  //       </Routes>
+  //     </ThemeProvider>
+  //   </BrowserRouter>
+  // </>
   <>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route path="/data" element={<DataHome />}></Route>
-        </Routes>
+        <App />
       </ThemeProvider>
     </BrowserRouter>
   </>

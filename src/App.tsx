@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Button } from "@mui/material";
-
+import { Button, Box } from "@mui/material";
+import Navbar from "./components/shared/Navbars/Navbar";
+import DataHome from "./components/pages/DataHome";
+import Home from "./components/pages/Home";
+import { AppStyle } from "./AppStyles";
 function App() {
   let [data, setData] = useState({});
 
@@ -25,9 +28,13 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Button variant="outlined">click me</Button>
-    </div>
+    <Box style={AppStyle}>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/data" element={<DataHome />}></Route>
+      </Routes>
+    </Box>
   );
 }
 
