@@ -1,27 +1,40 @@
 import { useState } from "react";
-import { InputForm, DefaultInputProps } from "./InputForm";
+import { InputForm, DefaultInputProps } from "../shared/Forms/InputForm";
 
 const Home = () => {
   const [gender, setGender] = useState<string>();
   const [age, setAge] = useState<number>();
 
-  const handleSubmit = (data: { gender: string; age: number }) => {
-    console.log("callback calleds", data);
-    setAge(data.age);
-    setGender(data.gender);
+  const handleSubmit = () => {
+    const gender: any = document.getElementById("gender");
+    const age: any = document.getElementById("age");
+    setAge(age.value);
+    setGender(gender.value);
   };
 
-  const formData: DefaultInputProps = {
-    id: "1775",
-    name: "gender",
-    label: "gender",
-    type: "text",
-    size: "large",
-    callback: handleSubmit,
-  };
+  const formData: DefaultInputProps[] = [
+    {
+      id: "gender",
+      name: "gender",
+      label: "gender",
+      type: "text",
+      size: "large",
+      placeholder: "Gender",
+    },
+    {
+      id: "age",
+      name: "age",
+      label: "age",
+      type: "number",
+      size: "large",
+      placeholder: "age",
+    },
+  ];
   return (
     <div>
-      <InputForm {...formData} />
+      {gender}
+      {age}
+      <InputForm forms={formData} callback={handleSubmit} />
     </div>
   );
 };

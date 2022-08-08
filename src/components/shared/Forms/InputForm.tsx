@@ -1,16 +1,17 @@
 import { Button } from "@mui/material";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
-import { DefaultInput } from "../shared/DefaultInput";
+import { DefaultInput } from "./DefaultInput";
 
 export type InputSize = "medium" | "large";
-export type InputType = "text" | "email";
+export type InputType = "text" | "email" | "number";
 export type DefaultInputProps = {
   id: string;
   name: string;
   label: string;
   type?: InputType;
   size?: InputSize;
+  placeholder?: string;
   callback?: (data: { gender: string; age: number }) => void;
 };
 
@@ -18,7 +19,10 @@ export type InputFormFields = {
   gender: string;
 };
 
-export const InputForm = (props: DefaultInputProps) => {
+export const InputForm = (props: {
+  forms: DefaultInputProps[];
+  callback: any;
+}) => {
   const {
     register,
     handleSubmit,
@@ -28,33 +32,26 @@ export const InputForm = (props: DefaultInputProps) => {
   const { callback } = props;
 
   const onSubmit = handleSubmit((data) => {
-    const gender: any = document.getElementById("gender");
-    const age: any = document.getElementById("age");
     if (callback) {
-      callback({
-        gender: gender.value,
-        age: age.value,
-      });
+      callback();
     }
   });
   return (
     <form onSubmit={onSubmit}>
-      <DefaultInput
-        id="gender"
-        type="text"
-        name="gender"
-        label="Gender"
-        placeholder="Gender"
-        required={true}
-      />
-      <DefaultInput
-        id="age"
-        type="number"
-        name="age"
-        label="Age"
-        placeholder="Age"
-        required={true}
-      />
+      {props.forms.map((form) => {
+        return (
+          <DefaultInput
+            key={form.id}
+            id={form.id}
+            type={form.type}
+            name={form.name}
+            label={form.label}
+            placeholder={form.placeholder}
+            required={true}
+          />
+        );
+      })}
+
       <Button
         className="mt-4 transform duration-200 py-2 px-4 bg-blue-500 text-white font-semibold rounded shadow-md hover:bg-blue-600 focus:outline-none disabled:opacity-50 focus:translate-y-1 hover:-translate-y-1"
         type="submit"
