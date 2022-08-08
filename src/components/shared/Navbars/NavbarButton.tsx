@@ -10,7 +10,7 @@ const NavbarButton = (props: NavbarButtonProps) => {
   const { title, route } = props;
   return (
     <Link to={route}>
-      <Button>{title}</Button>;
+      <Button>{title}</Button>
     </Link>
   );
 };

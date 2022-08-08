@@ -13,17 +13,6 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  // <>
-  //   <BrowserRouter>
-  //     <ThemeProvider theme={theme}>
-  //       <Navbar />
-  //       <Routes>
-  //         <Route path="/" element={<App />}></Route>
-  //         <Route path="/data" element={<DataHome />}></Route>
-  //       </Routes>
-  //     </ThemeProvider>
-  //   </BrowserRouter>
-  // </>
   <>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
